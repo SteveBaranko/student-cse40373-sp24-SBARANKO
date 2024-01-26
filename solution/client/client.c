@@ -36,9 +36,9 @@ int main(){
         for( int i = 0; i < 256; i++){
 
           /////////////if whitsepace//////////
-          if(buffer[i] == '\n' || buffer[i] == '\r' || 
-          buffer[i] == '\0' || buffer[i] == '\t' || 
-          buffer[i] == '\v' || buffer[i] == '\f'){
+          if(buffer[i] == '\n' || buffer[i] == '\r' 
+          || buffer[i] == '\t' || buffer[i] == '\v' 
+          || buffer[i] == '\f'){
             ///////////endif///////////////////
           
           buffer[i] = '\0';//replace with null

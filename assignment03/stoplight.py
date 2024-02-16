@@ -6,16 +6,16 @@ s = SenseHat()
 dim_green = (0, 10, 0)
 brighter_green = (0, 255, 0)
 dim_weird_green = (10, 0, 0)
-weird_green = (0, 255, 0)
+weird_green = (30, 150, 30)
 dim_yellow = (10, 10, 0)
 brighter_yellow = (255, 255, 0)
 dim_red = (10, 0, 0)
 brighter_red = (255, 0, 0)
 nothing = (0,0,0)
 
-north_south = True
-
-
+C = brighter_red
+NS = brighter_red
+EW = brighter_red
 
 '''
   THE STOPLIGHT SHOULD LOOK LIKE THIS 
@@ -44,14 +44,14 @@ def state1():
     #left arrow for north south
     #red light for east west
     return [
-        O, O, O, g, g, O, O, O,
-        O, O, O, y, y, O, O, O,
+        O, NS, O, g, g, O, NS, O,
+        EW, C, O, y, y, O, C, EW,
         O, O, O, W, r, O, O, O,
         g, y, R, O, O, R, y, g,
         g, y, R, O, O, R, y, g,
         O, O, O, r, W, O, O, O,
-        O, O, O, y, y, O, O, O,
-        O, O, O, g, g, O, O, O,
+        EW, C, O, y, y, O, C, EW,
+        O, NS, O, g, g, O, NS, O,
     ]
 def state2():
     g = dim_green
@@ -64,14 +64,14 @@ def state2():
     #green light for north south
     #red light for east west
     return [
-        O, O, O, G, G, O, O, O,
-        O, O, O, y, y, O, O, O,
+        O, NS, O, G, G, O, NS, O,
+        EW, C, O, y, y, O, C, EW,
         O, O, O, w, r, O, O, O,
         g, y, R, O, O, R, y, g,
         g, y, R, O, O, R, y, g,
         O, O, O, r, w, O, O, O,
-        O, O, O, y, y, O, O, O,
-        O, O, O, G, G, O, O, O,
+        EW, C, O, y, y, O, C, EW,
+        O, NS, O, G, G, O, NS, O,
     ]
 def state3():
     g = dim_green
@@ -82,17 +82,17 @@ def state3():
     r = dim_red
     R = brighter_red
     O = nothing
-    #yellow light for north south
-    #red light for east west
+    # yellow light for north south
+    # red light for east west
     return [
-        O, O, O, g, g, O, O, O,
-        O, O, O, Y, Y, O, O, O,
-        O, O, O, w, r, O, O, O,
-        g, y, R, O, O, R, y, g,
-        g, y, R, O, O, R, y, g,
+        O, NS, O, g, g, O, NS, O,
+        EW, C, O, Y, Y, O, C, EW,
         O, O, O, r, w, O, O, O,
-        O, O, O, Y, Y, O, O, O,
-        O, O, O, g, g, O, O, O,
+        g, y, R, O, O, R, y, g,
+        g, y, R, O, O, R, y, g,
+        O, O, O, w, r, O, O, O,
+        EW, C, O, Y, Y, O, C, EW,
+        O, NS, O, g, g, O, NS, O,
     ]
 def state4():
     G = brighter_green
@@ -106,14 +106,14 @@ def state4():
     #red light for north south
     #left arrow for east west
     return [
-        O, O, O, g, g, O, O, O,
-        O, O, O, y, y, O, O, O,
+        O, NS, O, g, g, O, NS, O,
+        EW, C, O, y, y, O, C, EW,
         O, O, O, R, R, O, O, O,
-        g, y, W, O, O, r, y, g,
         g, y, r, O, O, W, y, g,
+        g, y, W, O, O, r, y, g,
         O, O, O, R, R, O, O, O,
-        O, O, O, y, y, O, O, O,
-        O, O, O, g, g, O, O, O,
+        EW, C, O, y, y, O, C, EW,
+        O, NS, O, g, g, O, NS, O,
     ]
 def state5():
     g = dim_green
@@ -126,14 +126,14 @@ def state5():
     #green light for east west
     #red light for north south
     return [
-        O, O, O, g, g, O, O, O,
-        O, O, O, y, y, O, O, O,
+        O, NS, O, g, g, O, NS, O,
+        EW, C, O, y, y, O, C, EW,
         O, O, O, R, R, O, O, O,
         G, y, r, O, O, r, y, G,
         G, y, r, O, O, r, y, G,
         O, O, O, R, R, O, O, O,
-        O, O, O, y, y, O, O, O,
-        O, O, O, g, g, O, O, O,
+        EW, C, O, y, y, O, C, EW,
+        O, NS, O, g, g, O, NS, O,
     ]
 def state6():
     g = dim_green
@@ -147,31 +147,115 @@ def state6():
     #yellow light for east west
     #red light for north south
     return [
-        O, O, O, g, g, O, O, O,
-        O, O, O, y, y, O, O, O,
+        O, NS, O, g, g, O, NS, O,
+        EW, C, O, y, y, O, C, EW,
         O, O, O, R, R, O, O, O,
         g, Y, r, O, O, r, Y, g,
         g, Y, r, O, O, r, Y, g,
         O, O, O, R, R, O, O, O,
-        O, O, O, y, y, O, O, O,
-        O, O, O, g, g, O, O, O,
+        EW, C, O, y, y, O, C, EW,
+        O, NS, O, g, g, O, NS, O,
     ]
 
 
-count = 0
+def sleep_and_poll(time_s):
+    global nsc, ewc
+
+    start_time = time.time()
+
+    try:
+        while time.time() - start_time < time_s:
+            time.sleep(0.005)  # Sleep for 5 ms (adjust as needed)
+
+            for event in s.stick.get_events():
+                if event.action == "pressed":
+                    if event.direction in ["up", "down"]:
+                        nsc = True
+                    elif event.direction in ["left", "right"]:
+                        ewc = True
+                        
+            #if nsc or ewc:
+                # just wait
+                #pass
+
+    except KeyboardInterrupt:
+        pass
+
+
+nsc = False
+ewc = False
+
+state = 0
+
 while True:
     s.set_pixels(state1())
-    time.sleep(3)
-    s.set_pixels(state2())
-    time.sleep(5)
+    state = 1
+    sleep_and_poll(9.9)
+    state = 2
+    if(ewc):
+        #20 seconds of green, 5 of flashing, then 5 of red for crosswalk
+        NS = brighter_green
+        C = brighter_green
+        s.set_pixels(state2())
+        time.sleep(20)
+        for i in range(20):
+            #blink NS and C red for 5 seconds
+            if(i%2 == 0):
+                NS = brighter_red
+                C = brighter_red
+                s.set_pixels(state2())
+                time.sleep(.25)
+                
+            else:
+                NS = nothing
+                C = nothing
+                s.set_pixels(state2())
+                time.sleep(.25)
+                
+        ewc = False
+        NS = brighter_red
+        C = brighter_red
+        s.set_pixels(state2())
+        time.sleep(5)
+    else:
+        s.set_pixels(state2())
+        sleep_and_poll(30)
     s.set_pixels(state3())
-    time.sleep(1)
+    state = 3  
+    sleep_and_poll(9.9)
     s.set_pixels(state4())
-    time.sleep(3)
-    s.set_pixels(state5())
-    time.sleep(5)
-    s.set_pixels(state6())
-    time.sleep(1)
-    count += 1
+    state = 4
+    sleep_and_poll(10)
 
-      
+    state = 5
+    if(nsc):
+        EW = brighter_green
+        C = brighter_green
+        s.set_pixels(state5())
+        #20 seconds of green, 5 of flashing, then 5 of red for crosswalk
+        time.sleep(20)
+        # 20 in loop represents 5 seconds of flashing (.25 is sleep time)
+        for i in range(20):
+            #blink NS and C red for 5 seconds
+            if(i%2 == 0):
+                EW = brighter_red
+                C = brighter_red
+                s.set_pixels(state5())
+                time.sleep(.25)
+            else:
+                EW = nothing
+                C = nothing
+                s.set_pixels(state5())
+                time.sleep(.25)
+        nsc = False
+        EW = brighter_red
+        C = brighter_red
+        #5 seconds of red for crosswalk
+        s.set_pixels(state5())
+        time.sleep(5)
+    else:
+        s.set_pixels(state5())
+        sleep_and_poll(30)
+    s.set_pixels(state6())
+    state = 6
+    sleep_and_poll(9.9)
